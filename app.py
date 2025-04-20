@@ -9,9 +9,13 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 import time
 
 load_dotenv()
+# groq_api_key = os.getenv("GROQ_API_KEY")
 groq_api_key = st.secrets["GROQ_API_KEY"]
 
-
+os.environ["LANGCHAIN_API_KEY"] = st.secrets.get("LANGCHAIN_API_KEY", "") # for cloud
+# os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY") # for local machine
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_PROJECT"] = "Step by Step Problem Solving - SolveMate"
 
 # Define system prompts for both languages
 SYSTEM_PROMPT_BANGLA = """
