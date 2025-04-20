@@ -9,7 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 import time
 
 load_dotenv()
-groq_api_key = os.getenv("GROQ_API_KEY")
+groq_api_key = st.secrets["GROQ_API_KEY"]
 
 
 
@@ -77,7 +77,7 @@ So let's begin!
 # Initialize Langchain components
 @st.cache_resource
 def setup_llm(language):
-    model = ChatGroq(model_name="meta-llama/llama-4-scout-17b-16e-instruct", temperature=0.1)  # Lower temperature for more predictable responses
+    model = ChatGroq(model_name="meta-llama/llama-4-scout-17b-16e-instruct", temperature=0.1, groq_api_key=groq_api_key)  # Lower temperature for more predictable responses
 
     if language == "Bangla":
         system_prompt = SYSTEM_PROMPT_BANGLA
