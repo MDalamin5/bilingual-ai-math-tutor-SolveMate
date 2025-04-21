@@ -130,6 +130,30 @@ st.write(description) # Using st.write for a simple presentation
 # Language selection
 language = st.sidebar.selectbox("ভাষা নির্বাচন করুন / Select Language", ["Bangla", "English"])
 
+st.divider()
+        
+        
+        
+st.sidebar.markdown("### Relavent Systems")
+st.sidebar.markdown(
+    """
+    <style>
+    a {
+        color: #4CAF50; /* Green color */
+        text-decoration: none; /* Remove underline */
+    }
+    a:hover {
+        text-decoration: underline; /* Underline on hover */
+    }
+    </style>
+    <ul>
+        <li><a href="https://interactve.streamlit.app/">Interactive-Problem Solving</a></li>
+        <li><a href="http://192.168.0.103:8501">Learn Math Topics</a></li>
+    </ul>
+    """,
+    unsafe_allow_html=True,
+)
+
 # Initialize session state
 if "messages" not in st.session_state:
     st.session_state.messages = []
